@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Registro</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+background-color: #f5f5f5;
+}
+.container {
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.login-section, .admin-section, .public-section {
+margin-bottom: 20px;
+}
+input, textarea, button {
+width: 100%;
+padding: 10px;
+margin: 5px 0;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+button {
+background-color: #007bff;
+color: white;
+border: none;
+cursor: pointer;
+}
+button:hover {
+background-color: #0056b3;
+}
+.hidden {
+display: none;
+}
+.entry {
+border: 1px solid #ddd;
+padding: 10px;
+margin: 10px 0;
+border-radius: 5px;
+background-color: #f9f9f9;
+}
+.timestamp {
+font-size: 0.8em;
+color: #666;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Sección de Login -->
+<div class="login-section" id="loginSection">
+<h2>Acceso Administrador</h2>
+<input type="text" id="username" placeholder="Usuario" value="pipi">
+<input type="password" id="password" placeholder="Contraseña" value="ppppp55555">
+<button onclick="login()">Ingresar</button>
+<p id="loginError" style="color: red; display: none;">Credenciales incorrectas</p>
+</div>
+
+<!-- Sección Pública (para ingresar texto) -->
+<div class="public-section" id="publicSection">
+<h2>Ingresa tu texto</h2>
+<textarea id="userInput" placeholder="Escribe aquí..." rows="4"></textarea>
+<button onclick="saveEntry()">Guardar Entrada</button>
+<p id="saveMessage" style="color: green; display: none;">¡Entrada guardada!</p>
+</div>
+
+<!-- Sección de Administrador -->
+<div class="admin-section hidden" id="adminSection">
+<h2>Panel de Administrador</h2>
+<button onclick="logout()">Cerrar Sesión</button>
+<button onclick="clearAll()" style="background-color: #dc3545;">Eliminar Todo</button>
+
+<h3>Entradas Guardadas:</h3>
+<div id="entriesList"></div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
